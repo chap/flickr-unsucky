@@ -1,3 +1,5 @@
+# shows very briefly how we are extracting the EXIF data.  Run on commandline with "ruby comprehend.rb"
+
 class Array
   def comprehend(&block)
     return self if block.nil?
