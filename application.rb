@@ -6,6 +6,7 @@ require 'config.rb'
 FlickRaw.api_key = FLICKR_API_KEY
 
 module FlickRaw
+  # extending flickraw to make a URL helper for photosets
   def self.photosets_url_s(r)
     PHOTO_SOURCE_URL % [r.farm, r.server, r.primary, r.secret, "_s", "jpg"]
   end
@@ -27,6 +28,8 @@ end
   end
 end
 
+# this section needs to get DRYer
+
 get '/photoset/:id' do
   raise not_found if params[:id].nil?
   @photoset = flickr.photosets.getPhotos(:photoset_id => params[:id])
@@ -46,10 +49,6 @@ get '/photoset-huge/:id' do
   @photoset = flickr.photosets.getPhotos(:photoset_id => params[:id])
   @info = flickr.photosets.getInfo(:photoset_id => params[:id])
   haml :photoshuge
-end
-
-get '/collection' do
-  flickr.collections.getTree(:user_id => FLICKR_USER_ID, :collection_id => '25896172-72157624574306930')
 end
 
 get '/photo/:id' do
