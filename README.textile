@@ -29,8 +29,11 @@ I like to use shotgun because it allows for easier reloading of code.
 
 h2. Deploying your app
 
+To deploy using Heroku:
+* Start at step 3, stop after step 4: "http://docs.heroku.com/quickstart":http://docs.heroku.com/quickstart (I suggest you actually name your app in step 3.. ex: heroku create jesseflickr)
 * heroku config:add FLICKR_API_KEY=yourapikey
 * heroku config:add FLICKR_USER_ID=youruserid 
+* go to yourappsname.heroku.com
 
 h2.  Todo
 
