@@ -1,0 +1,58 @@
+body {
+  background: #1c1a1c;
+  color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {color:#999999;}
+
+h1, h2 {
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+a {
+	text-decoration: none;
+	color: yellow;
+}
+
+a:hover {color: orange;}
+
+.photoset {
+	float: left;
+	padding: 5px;
+	margin: 10px 10px 25px 10px;
+	height: 30em;
+}
+
+.photoset img {
+  border: 10px solid #111;
+}
+
+#nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.medium, .large, .huge {
+  margin: 10px;
+}
+
+.huge {
+  margin: 30px 10px;
+}
+
+.clear {
+  clear: both;
+}
+
+#footer {
+  margin: 30px 0 0 0;
+}
+
+#footer-nav li
+{
+display: inline;
+list-style-type: none;
+padding-right: 20px;
+}

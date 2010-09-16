@@ -1,0 +1,44 @@
+h1. flickr-unsucky
+
+I wanted to be able to view my own Flickr photos in a more user-friendly and intuitive way.  The new 2010 Flickr interface is a massive improvement over the old one, but still is a pain for me to navigate.  This is a Sinatra app (Ruby) that solves these problems for me:
+
+* View EXIF data that is interesting to photographers: camera model, shutter speed, aperture speed, focal length, ISO
+* Large thumbnail browsing.  I took the default-sized single-photo-view on Flickr and made it the thumbnail when you view things in /photoset-big/*
+* Large full-size viewing by default.  1024 version shows up by default in /photo/*
+* Large photo links to original size
+
+There are many things you could tailor this app to be.  Out of the box it works well as a personalized gallery for your Flickr account. 
+
+h2. Demo
+
+"http://jesseflickr.heroku.com/":http://jesseflickr.heroku.com/
+
+h2. Install and Run
+
+* git clone git://github.com/ioda006/flickr-unsucky.git
+* @sudo gem install sinatra haml flickraw@ (make sure you get 0.8.3 and not 0.8.2 of flickraw.  Do @gem list --local | grep flickraw@ to find out)
+* get a "Flickr API key":http://www.flickr.com/services/api/misc.api_keys.html
+
+Two ways to run:
+
+* put your API key and userid (find it here: "idgettr.com":http://idgettr.com/) in config.rb and then run your server as normal from the commandline.  Example: @ruby application.rb@
+* run with your server with environment variables.  Example: @FLICKR_API_KEY=yourapikey FLICKR_USER_ID=youruserid shotgun -sthin -p4567 --host=0.0.0.0@
+
+I like to use shotgun because it allows for easier reloading of code.
+
+
+h2. Deploying your app
+
+* heroku config:add FLICKR_API_KEY=yourapikey
+* heroku config:add FLICKR_USER_ID=youruserid 
+
+h2.  Todo
+
+* Navigating while at a photo view page is non-existent currently.  Would love to have a large 10+ thumbnail strip (5 in each direction) to browse or something.
+* Something having to do with location that the photo was taken
+* DRYer code.
+* Note the number of favorites and comments next to "View this photo on Flickr" since that's probably the main reason to see it there.
+
+h2. Credits
+
+This project is based on "RichGuk's flickraw-example":http://github.com/RichGuk/flickraw-example and uses "flickraw":http://github.com/hanklords/flickraw

@@ -1,0 +1,46 @@
+%a{:href => FlickRaw.url_o(@photo)}
+  %img{:src => FlickRaw.url_b(@photo), :alt => @photo.title}
+%br
+=@photo.title
+%br
+=@photo.description
+%br
+
+
+%table{:style => "text-align: left;width: auto;"}
+  -unless @make == nil && @model == nil 
+    %tr
+      %th Camera:
+      %td
+        =@make + " " unless @make.nil? 
+        =@model unless @model.nil?
+  -unless @exposure == nil 
+    %tr
+      %th Shutter:
+      %td=@exposure
+  -unless @aperture == nil 
+    %tr
+      %th Aperture:
+      %td=@aperture
+  -unless @focal_length == nil 
+    %tr
+      %th Focal Length:
+      %td=@focal_length
+  -unless @iso == nil 
+    %tr
+      %th ISO:
+      %td=@iso
+  -unless @photo.dates.taken == nil 
+    %tr
+      %th Date Taken:
+      %td=@photo.dates.taken
+    %tr
+      %th Tags: 
+      %td
+        - for tag in @photo.tags
+          =tag
+          
+See this photo's 
+%a{:href => FlickRaw.url_photopage(@photo)} Flickr page
+/ Use this to debug
+/ =@exif.inspect

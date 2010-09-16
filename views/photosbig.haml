@@ -1,0 +1,13 @@
+%h1=@info.title
+%p=@info.description
+%ul
+  %li
+    %a{:href => "/photoset/" + params[:id]} Medium thumbnails 
+  %li
+    %a{:href => "/photoset-big/" + params[:id]} Large thumbnails
+  %li
+    %a{:href => "/photoset-huge/" + params[:id]} Fullsize photos
+
+- @photoset.photo.each do |photo|
+  %a{:href => "/photo/#{photo.id}"}
+    %img.large{:src => FlickRaw.url_z(photo), :alt => photo.title}

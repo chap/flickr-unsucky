@@ -1,0 +1,9 @@
+%h1 Photos by Jesse Crouch
+- @photosets.each do |photoset|
+  .photoset{:id => "photoset_#{photoset.id}"}
+    
+    %a{:href => "/photoset/#{photoset.id}"}
+      %img{:src => "#{FlickRaw.photosets_url_m(photoset)}", :alt => ""}
+      %h3
+        =photoset.title
+    =photoset.photos + " photos"

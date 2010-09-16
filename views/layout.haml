@@ -1,0 +1,23 @@
+!!!strict
+%html{:xmlns => 'http://www.w3.org/1999/xhtml'}
+  %head
+    %meta{:'http-equiv' => 'Content-type', :content => 'text/html', :charset => 'utf-8'}
+    %title Flickraw example
+    %link{:rel => 'stylesheet', :href => '/css/blueprint/screen.css', :type => 'text/css'}
+    %link{:rel => 'stylesheet', :href => '/css/master.css', :type => 'text/css'}
+  
+  %body=yield
+    
+  #nav
+    %a{:href => "/"} Home
+    
+  %br.clear
+  #footer
+    #footer-nav
+      %ul
+        %li
+          %a{:href => "http://www.flickr.com/photos/ioda006"} My Flickr page
+        %li
+          %a{:href => "http://github.com/ioda006/flickr-unsucky"} Open source code for this gallery
+        %li
+          Photos by Jesse Crouch
