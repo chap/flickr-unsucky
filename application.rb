@@ -21,11 +21,10 @@ get '/' do
   haml :photosets
 end
 
-['/photosets'].each do |path|
-  get path do
-    @photosets = flickr.photosets.getList(:user_id => FLICKR_USER_ID)
-    haml :photosets
-  end
+get '/user/:id' do
+  @user = flickr.people.findByUsername(:username => params[:id])
+  @photosets = flickr.photosets.getList(:user_id => @user.id)
+  haml :photosets
 end
 
 # this section needs to get DRYer

@@ -6,4 +6,7 @@
       %img{:src => "#{FlickRaw.photosets_url_m(photoset)}", :alt => ""}
       %h3
         =photoset.title
-    =photoset.photos + " photos"
+    -begin
+      =photoset.photos + " photos"
+    -rescue
+      
